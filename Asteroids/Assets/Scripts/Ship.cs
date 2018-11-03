@@ -14,8 +14,8 @@ public class Ship : MonoBehaviour {
     #endregion
     
     #region Constants    
-    const float ThrustForce = 1;
-    const float RotateDegreesPerSecond = 25;
+    const float ThrustForce = 5;
+    const float RotateDegreesPerSecond = 100;
     #endregion
 
     #region Methods
@@ -38,13 +38,20 @@ public class Ship : MonoBehaviour {
         {
             rotationAmount *= -1;
         }
+        else if(rotationInput == 0)
+        {
+            rotationAmount = 0;
+        }
 
         transform.Rotate(Vector3.forward, rotationAmount);
+        thrustDirection = new Vector2(Mathf.Cos(AngleToRadians(transform.eulerAngles.z)), Mathf.Sin(AngleToRadians(transform.eulerAngles.z)));
+
     }
 
     // Used to apply Force to RigidBody
     private void FixedUpdate()
     {
+
         if (Input.GetAxis("Thrust") > 0)
         {
             rigidbody2.AddForce(thrustDirection * ThrustForce,ForceMode2D.Force);
@@ -80,5 +87,11 @@ public class Ship : MonoBehaviour {
             transform.position = pos;
         }
     }
+
+    private float AngleToRadians(float radianDegree)
+    {
+        return Mathf.Deg2Rad * radianDegree;
+    }
+
     #endregion
 }
