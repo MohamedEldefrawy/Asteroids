@@ -13,8 +13,9 @@ public class Ship : MonoBehaviour {
     CircleCollider2D circleCollider2D;
     #endregion
     
-    #region Constants
+    #region Constants    
     const float ThrustForce = 1;
+    const float RotateDegreesPerSecond = 25;
     #endregion
 
     #region Methods
@@ -30,7 +31,15 @@ public class Ship : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
+        float rotationInput = Input.GetAxis("Rotate");
+        float rotationAmount = RotateDegreesPerSecond * Time.deltaTime;
 
+        if(rotationInput < 0)
+        {
+            rotationAmount *= -1;
+        }
+
+        transform.Rotate(Vector3.forward, rotationAmount);
     }
 
     // Used to apply Force to RigidBody
