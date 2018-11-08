@@ -10,7 +10,6 @@ public class Ship : MonoBehaviour {
     #region Fields
     Rigidbody2D rigidbody2;
     Vector2 thrustDirection ;
-    CircleCollider2D circleCollider2D;
     #endregion
     
     #region Constants    
@@ -24,7 +23,6 @@ public class Ship : MonoBehaviour {
     void Start()
     {
         rigidbody2 = GetComponent<Rigidbody2D>();
-        circleCollider2D = GetComponent<CircleCollider2D>();
         thrustDirection = new Vector2(1, 0);
     }
 
@@ -45,7 +43,6 @@ public class Ship : MonoBehaviour {
 
         transform.Rotate(Vector3.forward, rotationAmount);
         thrustDirection = new Vector2(Mathf.Cos(AngleToRadians(transform.eulerAngles.z)), Mathf.Sin(AngleToRadians(transform.eulerAngles.z)));
-
     }
 
     // Used to apply Force to RigidBody
@@ -58,40 +55,10 @@ public class Ship : MonoBehaviour {
 
         }
     }
-
-    // Wrap Ship When getting out of camera boundries
-    private void OnBecameInvisible()
-    {
-        if ((circleCollider2D.transform.position.x - circleCollider2D.radius) >= ScreenUtils.ScreenRight)
-        {
-            Vector2 pos = transform.position;
-            pos.x = ScreenUtils.ScreenLeft;
-            transform.position = pos;
-        }
-        else if((circleCollider2D.transform.position.x - circleCollider2D.radius) <= ScreenUtils.ScreenLeft)
-        {
-            Vector2 pos = transform.position;
-            pos.x = ScreenUtils.ScreenRight;
-            transform.position = pos;
-        }
-        else if((circleCollider2D.transform.position.y - circleCollider2D.radius) > ScreenUtils.ScreenTop)
-        {
-            Vector2 pos = transform.position;
-            pos.y = ScreenUtils.ScreenBottom;
-            transform.position = pos;
-        }
-        else if ((circleCollider2D.transform.position.y - circleCollider2D.radius) < ScreenUtils.ScreenBottom)
-        {
-            Vector2 pos = transform.position;
-            pos.y = ScreenUtils.ScreenTop;
-            transform.position = pos;
-        }
-    }
-
+   
     private float AngleToRadians(float radianDegree)
     {
         return Mathf.Deg2Rad * radianDegree;
     }
-
     #endregion
 }

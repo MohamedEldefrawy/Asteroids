@@ -2,6 +2,7 @@
 
 /// <summary>
 /// Configure Asteroids (Ships)
+/// Author : Mohamed Eldfrawy
 /// </summary>
 public class Asteroid : MonoBehaviour
 {

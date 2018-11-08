@@ -64,6 +64,7 @@
     <Compile Include="Assets\Scripts\Asteroid.cs" />
     <Compile Include="Assets\Scripts\GameInitializer.cs" />
     <Compile Include="Assets\Scripts\ScreenUtils.cs" />
+    <Compile Include="Assets\Scripts\ScreenWrapper.cs" />
     <Compile Include="Assets\Scripts\Ship.cs" />
     <Reference Include="UnityEditor.StandardEvents">
       <HintPath>C:/Users/moham/Desktop/Asteroids/Asteroids/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
