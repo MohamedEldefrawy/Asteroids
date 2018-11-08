@@ -261,3 +261,6 @@ __pycache__/
 *.pyc
 /Asteroids/Library
 /Asteroids/Temp
+/Asteroids/Builds/TemplateData
+/Asteroids/Builds/Build
+/Asteroids/Builds
