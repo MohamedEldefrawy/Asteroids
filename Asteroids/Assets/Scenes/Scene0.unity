@@ -231,6 +231,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70bbe69995e12c946b15f92c0ecf2bfa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  shipsSprites:
+  - {fileID: 21300000, guid: 89c16a7d1f888a94886d003836e40bd6, type: 3}
+  - {fileID: 21300000, guid: 0922c7d8a3bacb34dad70f7a510920ec, type: 3}
+  - {fileID: 21300000, guid: f3c8575579f40914cb5c4af6cabeb90d, type: 3}
+  - {fileID: 21300000, guid: edd6df1317ddf334cb7ff570d3de24bf, type: 3}
 --- !u!50 &1242517041
 Rigidbody2D:
   serializedVersion: 4
